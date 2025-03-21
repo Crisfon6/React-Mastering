@@ -1,7 +1,7 @@
 import { Gift, GiftSimple } from "../models/Gift";
 
-const apiKey = import.meta.env.VITE_GIPHY_API_KEY;
-export const getGifs = async (category:string) : Promise<GiftSimple[]> =>{
+;
+export const getGifs = async (category:string, apiKey:string=import.meta.env.VITE_GIPHY_API_KEY) : Promise<GiftSimple[]> =>{
     const limit = 10;
     const url =     `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${category}&limit=${limit}`
     const response = await fetch(url);

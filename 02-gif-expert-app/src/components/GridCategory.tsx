@@ -20,7 +20,7 @@ export function GridCategory({ category }: { category: string }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 cursor-pointer">
           {gifs.map((gif: GiftSimple) => (
-            <CardCategory key={gif.id} gif={gif}></CardCategory>
+            <CardCategory key={gif.id} url={gif.url} title={gif.title}></CardCategory>
           ))}
         </div>
       </div>
