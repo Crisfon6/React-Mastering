@@ -1,7 +1,8 @@
 import { Gift, GiftSimple } from "../models/Gift";
+import { GIPHY_API_KEY } from "./env";
 
-;
-export const getGifs = async (category:string, apiKey:string=import.meta.env.VITE_GIPHY_API_KEY) : Promise<GiftSimple[]> =>{
+export const getGifs = async (category:string, ) : Promise<GiftSimple[]> =>{
+    const apiKey = GIPHY_API_KEY;
     const limit = 10;
     const url =     `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${category}&limit=${limit}`
     const response = await fetch(url);
@@ -11,6 +12,5 @@ export const getGifs = async (category:string, apiKey:string=import.meta.env.VIT
         title: gift.title,
         url: gift.images.downsized_medium.url
     }));
-    console.log(giftsSimple);
     return giftsSimple;
 }

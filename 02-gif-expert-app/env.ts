@@ -1,0 +1,1 @@
+export const VITE_GIPHY_API_KEY="9v0tJGkYpfVpOZO0I4FU4aS1al70Qq4d";

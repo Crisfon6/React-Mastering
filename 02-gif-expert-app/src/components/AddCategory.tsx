@@ -19,7 +19,7 @@ import { useState } from "react";
 } */
 export function AddCategory({onNewCategory}: {onNewCategory: (newCategory:string)=>void}) {
     const [input,setInput] = useState('');
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {     
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => { 
         e.preventDefault();
         const cleanInput = input.trim();
         if(cleanInput.length <= 1) return;
@@ -27,7 +27,7 @@ export function AddCategory({onNewCategory}: {onNewCategory: (newCategory:string
         setInput('');
     }
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 mb-6 w-full max-w-2xl">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 mb-6 w-full max-w-2xl" aria-label="form">
             <input 
                 type="text" 
                 placeholder="Search gifs" 

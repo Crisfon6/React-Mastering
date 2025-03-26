@@ -9,7 +9,7 @@ export function GridCategory({ category }: { category: string }) {
     <>
       <div className="px-10">
         {isLoading && (
-          <div className="flex items-center justify-center min-h-[200px]">
+          <div className="flex items-center justify-center min-h-[200px]" data-testid="loading-spinner">
             <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-purple-500 border-solid"></div>
             <p className="ml-4 text-xl text-rose-50 font-semibold"> </p>
           </div>

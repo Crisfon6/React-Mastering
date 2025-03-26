@@ -6,8 +6,10 @@ export function useFetchGifs(category: string) {
   const [gifs, setGifs] = useState<GiftSimple[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    getGifs(category).then(setGifs);
-    setIsLoading(false);
+    getGifs(category).then((gifs)=>{
+      setGifs(gifs);
+      setIsLoading(false);
+    });
   }, []);
   return {
     gifs,

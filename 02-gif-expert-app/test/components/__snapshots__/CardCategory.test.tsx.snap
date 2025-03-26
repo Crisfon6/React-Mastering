@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardCategory to match snapshot 1`] = `
+<div>
+  <div
+    class="hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-xs hover:[animation-duration:_4s] hover:scale-105 hover:shadow-lg"
+  >
+    <div
+      class="rounded-[10px] bg-white p-4 "
+    >
+      <div
+        class="bg-cover bg-center h-48"
+        data-testid="gif-image"
+        style="background-image: url(https://media1.giphy.com/media/v1.Y2lkPTNhZGQxM2Vidmw2eWtvYnJjNGJuN3g1N2F6anBlbThjc3ByNWZtOGdsejhlN2s5MSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/VXJWhaO7afRe/giphy.gif);"
+      />
+      <h1
+        class="text-2xl font-bold mb-6 text-center text-rose-50 tracking-wide drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] py-1 px-1    transform hover:scale-105 transition-transform duration-300 "
+      >
+        test
+      </h1>
+    </div>
+  </div>
+</div>
+`;
