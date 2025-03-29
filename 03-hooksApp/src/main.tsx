@@ -1,9 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { HookApp } from "./HookApp";
 import {QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
+import { HookApp } from "./HookApp";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")!).render(
@@ -11,6 +10,7 @@ createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
 
     <HookApp />
+
     </QueryClientProvider>
   </StrictMode>
 );
