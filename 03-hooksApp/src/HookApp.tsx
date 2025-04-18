@@ -11,6 +11,7 @@ import { Memorize } from "./07-useMemo/Memorize"
 import { MemoHook } from "./07-useMemo/MemoHook"
 import { CallBackHook } from "./08-useCallBacks/CallBackHook"
 import { Padre } from "./09-tarea-memo/Padre"
+//import  "./10-useReducer/IntroReducer"
 export const HookApp = () => {
   return (
     <div className="container">
@@ -30,6 +31,7 @@ export const HookApp = () => {
   <MemoHook />
   <CallBackHook />
   <Padre />
+ 
     </div>
   )
 }
