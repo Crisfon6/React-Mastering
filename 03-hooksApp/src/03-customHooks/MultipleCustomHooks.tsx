@@ -2,7 +2,7 @@ import { useCounter, useFetch } from "../hooks";
 import { Pokemon } from "../interfaces/PokeApi.interface";
 
 export const MultipleCustomHooks = () => {
-  const { counter, increment } = useCounter(1);
+  const { counter, increment, decrement } = useCounter(1);
   const { data, loading, hasError, error } = useFetch<Pokemon>(
     `https://pokeapi.co/api/v2/pokemon/${counter}?limit=5`
   );
@@ -13,7 +13,7 @@ export const MultipleCustomHooks = () => {
       <div className="min-h-[32rem]"> {/* Contenedor con altura mínima fija */}
         {loading ? (
           <div className="flex justify-center items-center h-[32rem]">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500" data-testid="loading-spinner"></div>
           </div>
         ) : hasError ? (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
@@ -25,27 +25,30 @@ export const MultipleCustomHooks = () => {
             <div className="flex gap-4 mb-4">
               <button 
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 disabled:opacity-50 cursor-pointer"
-                onClick={() => counter > 1 && increment(-1)}
+                onClick={() => counter > 1 && decrement()}
                 disabled={counter <= 1}
+                data-testid="previous-pokemon-button"
               >
                 Previous
               </button>
               <button 
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 cursor-pointer"
                 onClick={() => increment()}
+                data-testid="next-pokemon-button"
               >
                 Next Pokemon
               </button>
-              <span className="py-2 px-4 bg-gray-100 rounded">#{counter}</span>
+              <span className="py-2 px-4 bg-gray-100 rounded" data-testid="pokemon-number">#{counter}</span>
             </div>
 
             <div className="w-100 rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow duration-300 mb-4">
-              <div className="relative">
+              <div className="relative" >
                 <img 
                   className="w-full h-64 object-contain bg-gray-100 p-4 transition-transform duration-300 hover:scale-110"
                   src={data.sprites.other?.dream_world.front_default} 
                   alt={data.name}
                   loading="lazy"
+                  data-testid="pokemon-image"
                 />
               </div>
               <div className="px-6 py-4">

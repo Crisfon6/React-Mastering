@@ -7,7 +7,7 @@ interface State<T> {
   error: string | null;
 }
 
-const localCache: Record<string, any> = {};
+export const __localCache: Record<string, any> = {};
 export const useFetch = <T>(url: string) => {
   const [state, setState] = useState<State<T>>({
     data: null,
@@ -27,10 +27,10 @@ export const useFetch = <T>(url: string) => {
   const fetchData = async (isMounted: boolean,url:string) => {
     try {
       setLoadinState();
-      if(localCache[url]){
+      if(__localCache[url]){
         console.log('Fetching data from cache');
         setState({
-          data: localCache[url],
+          data: __localCache[url],
           loading: false,
           hasError: false,
           error: null,
@@ -52,7 +52,7 @@ export const useFetch = <T>(url: string) => {
         });
       }
       //Save in cache
-      localCache[url] = data;
+      __localCache[url] = data;
     } catch (error) {
       if (isMounted) {
         setState({

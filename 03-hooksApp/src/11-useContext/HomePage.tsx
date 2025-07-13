@@ -5,8 +5,8 @@ export const HomePage = () => {
   const {user} = useContext(UserContext) as {user: any};
   return (
     <div>
-      <h1>HomePage</h1>
-      {user && <pre>{JSON.stringify(user, null, 2)}</pre>}
+    <h1>HomePage</h1>
+      {user && <pre data-testid="user">{JSON.stringify(user, null, 2)}</pre>}
     </div>
   );
 };
